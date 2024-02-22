@@ -7,6 +7,8 @@ application that displays a random cat fact.
 
 You have a good selection of libraries at your disposal, all of which are the same that is used in the GOL Android application.
 
-Utilise OkHTTP and Retrofit to make your network calls.
-Use coroutines and flows to asynchronously call endpoints and return data
-Use compose to render the UI
+- Utilise OkHTTP and Retrofit to make your network calls.
+- Use coroutines and flows to asynchronously call endpoints and return data
+- Use compose to render the UI
+
+Happy Coding!
