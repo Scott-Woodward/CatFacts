@@ -1,0 +1,89 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: '../dependencies.gradle'
+
+android {
+    namespace 'uk.co.learning.catfacts'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "uk.co.learning.catfacts"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.2.0'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation kotlin.values()
+    implementation coroutines.values()
+
+    implementation coreKtx
+    implementation appCompat
+    implementation annotations
+    implementation recyclerView
+    implementation gridLayout
+    implementation constraintLayout
+    implementation materialDesign
+
+    implementation lifecycleExtensions.values()
+
+    implementation fragment
+    implementation navigation.values()
+
+    implementation platform(okHttp3BoM)
+    implementation okHttp3.values() //https://square.github.io/okhttp/
+    implementation retrofit.values() //https://square.github.io/retrofit/
+    implementation coil.values()
+
+    testImplementation unitTesting.values()
+
+    testImplementation(coroutinesTest) {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlinx-coroutines-core'
+    }
+    testImplementation flowTest
+
+    implementation platform(composeBoM)
+    implementation compose.values()
+    implementation composeMaterialDesign.values()
+    implementation compose.runtime
+
+    implementation 'androidx.activity:activity-compose:1.7.0'
+
+}
